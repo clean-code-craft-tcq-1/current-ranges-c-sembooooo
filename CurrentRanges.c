@@ -11,6 +11,8 @@
  *    "No Continous Values found".
  */ 
 
+int (*print)(const char *restrict , ...) = &printf;
+
 void PrintContinousValuesInCurrentReadingSampleSet(int *CurrentReadingSampleSet)
 {
     int index = 0; 
@@ -21,6 +23,7 @@ void PrintContinousValuesInCurrentReadingSampleSet(int *CurrentReadingSampleSet)
     int IsPrintAllowed =0;
     const int SampleSetSize = 7;
     assert(CurrentReadingSampleSet != NULL);
+    printf("Range    Readings\n");
     for(index =1; index < SampleSetSize; index++)
     {
         diff = CurrentReadingSampleSet[index] - CurrentReadingSampleSet[index-1];
@@ -42,22 +45,14 @@ void PrintContinousValuesInCurrentReadingSampleSet(int *CurrentReadingSampleSet)
         if((diff > 1) && (IsContinousValueDetectionStarted ==1))
         {
             EndValue = CurrentReadingSampleSet[index-1];
-            IsPrintAllowed =1;           
+            IsPrintAllowed = 1;           
         }
         if(IsPrintAllowed == 1)
         {
-            printf("%d - %d    %d\n",StartValue,EndValue,Count);
+            print("%d - %d    %d\n",StartValue,EndValue,Count);
             IsContinousValueDetectionStarted = 0;
             IsPrintAllowed = 0;
             Count =1;
         }
     }
-}
-
-
-int main()
-{
-    int CurrentReadingSampleSet[] = {7,7,7,7,3,3,4};
-    PrintContinousValuesInCurrentReadingSampleSet(CurrentReadingSampleSet);
-    return 0;
 }

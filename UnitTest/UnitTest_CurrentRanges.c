@@ -1,23 +1,27 @@
-#include "CurrentRanges.c"
+#include "../CurrentRanges.c"
+#include "mocks.h"
+#include <assert.h>
 
-static void TC_Testcase(void)
+static void TC_Testcase_001(void)
 {
     /**
-     * Few questions: 
-     * Should the sample set be equal to fixed length ? 
-     * or should we keep it constant length?
-     * 
-     * Answer : Dont want to do speculative coding
-     * Hence fixing the sample set to a size say 7.
+     *  Decided not to put the size of the array fixed length.
+     *  Hence fixing the sample set to a size say 7.
      */ 
-
-    int CurrentReadingSampleSet[] = {3,3,4,7,7,7}
+    Reset_mocks();
+    int CurrentReadingSampleSet[] = {3,3,4,7,11,13};
+    print = &stub_printf;
     PrintContinousValuesInCurrentReadingSampleSet(CurrentReadingSampleSet);
+    assert(call_printf == 1);
+    assert(PrintfInputParam[0] == 3);
+    assert(PrintfInputParam[1] == 4);
+    assert(PrintfInputParam[2] == 3);
 }
 
 
 
 int main()
 {
+    TC_Testcase_001();
     return 0;
 }
