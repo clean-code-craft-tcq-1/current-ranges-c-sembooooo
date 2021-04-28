@@ -41,8 +41,14 @@ Range, Readings
 
 Start test-driven development:
 
-1. Establish quality parameters for your project: What is the maximum complexity you would allow? How much duplication would you consider unacceptable? What is the coverage you'll aim for?
-Adapt/adopt/extend the `yml` files from one of your workflow folders.
+1. Establish quality parameters for your project: 
+    1. What is the maximum complexity you would allow?  
+       These questions are really interesting.  
+       How can one even determine that without even knowing how to write the alogrithm ? Are there any metrics or is it just a guess ?  
+       For now my guess would be 4.
+    1. How much duplication would you consider unacceptable? What is the coverage you'll aim for?
+       Same Questions as above  
+    1. Adapt/adopt/extend the `yml` files from one of your workflow folders.
 
 1. Write the smallest possible failing test.
 
@@ -52,5 +58,12 @@ Adapt/adopt/extend the `yml` files from one of your workflow folders.
 
 Implement one failing test and at least one passing test:
 
-- _enter the name of a **passing** test
-- _enter the name of a **failing** test
+- TC_Testcase_001 the name of a **passing** test
+- TC_Testcase_002 the name of a **failing** test
+
+
+
+To be honest, i am feeling this as a mind set development than a coding practice.
+Hence felt a little different and tough when doing it. I am still little confused about this.
+May be practising this a lot in real life may help me.
+I am really not sure only if i am feeling like this.
