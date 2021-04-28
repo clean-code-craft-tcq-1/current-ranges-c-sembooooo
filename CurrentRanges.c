@@ -1,17 +1,13 @@
 #include <stdio.h>      /* For printf() */
 #include <assert.h>     /* For assert() */
 
-/**
- * Design Decisions:
- * 1. The input is a pointer of type int.
- * 2. The pointer assumes that it is always pointed to an array.
- * 3. The array to which the input parameter is pointed to shall be of a fixed size 7. 
- * 4. This function shall print on console.
- * 5. If there is no continous values found then it shall print 
- *    "No Continous Values found".
- */ 
 
 int (*print)(const char *restrict , ...) = &printf;
+
+
+/**
+ * The below code has someother bugs, lol.
+ */ 
 
 void PrintContinousValuesInCurrentReadingSampleSet(int *CurrentReadingSampleSet)
 {
@@ -42,10 +38,13 @@ void PrintContinousValuesInCurrentReadingSampleSet(int *CurrentReadingSampleSet)
                 IsPrintAllowed = 1;
             }
         }
-        if((diff > 1) && (IsContinousValueDetectionStarted ==1))
+        else if(IsContinousValueDetectionStarted ==1)
         {
             EndValue = CurrentReadingSampleSet[index-1];
             IsPrintAllowed = 1;           
+        }
+        else{
+            /* god knows what goes here */
         }
         if(IsPrintAllowed == 1)
         {
@@ -56,3 +55,4 @@ void PrintContinousValuesInCurrentReadingSampleSet(int *CurrentReadingSampleSet)
         }
     }
 }
+

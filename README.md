@@ -58,11 +58,12 @@ Start test-driven development:
 
 Implement one failing test and at least one passing test:
 
-- _enter the name of a **passing** test
-- _enter the name of a **failing** test
+- TC_Testcase_001 the name of a **passing** test
+- TC_Testcase_002 the name of a **failing** test
 
 
 
 To be honest, i am feeling this as a mind set development than a coding practice.
-Hence felt a little different and tough when doing it.
+Hence felt a little different and tough when doing it. I am still little confused about this.
+May be practising this a lot in real life may help me.
 I am really not sure only if i am feeling like this.
